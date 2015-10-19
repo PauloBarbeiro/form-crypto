@@ -142,11 +142,10 @@
 				                      //resp = $.parseJSON(data);
 			                        
 			                          console.log( "Validation Returned: ------------------------" );
-			                          teste_callback(data)
 			                          //console.log( resp );
 			                          console.log( data );
 			                          console.log( "----------------------------------------- END" );
-			                    }//*/
+			                    }
 				            });// ajax 
 			              
 			              

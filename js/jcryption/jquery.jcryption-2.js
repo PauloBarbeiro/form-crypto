@@ -24,9 +24,19 @@
 
     base.$el.data("jCryption", base);
     base.$el.data("key", null);
+	
+	base.ajax_fields = new Array();
+
 
     base.init = function() {
-
+	  
+	  
+	  $(this.el).find("input").each(function(i){
+		  if( $(this).attr("ajaxcallback") ){ 
+			  base.ajax_fields.push( $(this) );
+		  }
+	  });
+	  	  
       base.options = $.extend({}, $.jCryption.defaultOptions, options);
 
       $encryptedElement = $("<input />",{
@@ -45,14 +55,16 @@
         if (base.options.beforeEncryption()) {
           base.authenticate(
             function(AESEncryptionKey) {
+
               var toEncrypt = base.$el.serialize();
+              	
               if ($submitElement.is(":submit")) {
-                toEncrypt = toEncrypt + "&" + $submitElement.attr("name") + "=" + $submitElement.val();
+	            toEncrypt = toEncrypt + "&" + $submitElement.attr("name") + "=" + $submitElement.val();
               }
               $encryptedElement.val($.jCryption.encrypt(toEncrypt, AESEncryptionKey));
 								$(base.$el).find(base.options.formFieldSelector)
 								.attr("disabled", true).end()
-								.append($encryptedElement).submit();
+								.append($encryptedElement);.submit();
             },
             function() {
             	// Authentication with AES Failed ... sending form without protection
@@ -65,6 +77,56 @@
 
         return false;
       });
+      
+      if(wp_jcryption.use_ajax_fields){
+	      for(var i=0 ; i<base.ajax_fields.length ; i++){
+		      var element = base.ajax_fields[i];
+		      element.bind( base.options.fieldValidationEvent, function(e){
+			      var value = $(this).val();
+			      
+			      var action = $(this).attr("ajaxcallback");
+			      
+			      if (base.options.beforeEncryption()) {
+				      				      
+				  	base.authenticate(
+					  	function(AESEncryptionKey) {
+				          
+			              var toEncrypt = value;
+			              	
+			              var encrypted = $.jCryption.encrypt(toEncrypt, AESEncryptionKey);
+			              
+						  	$.ajax({
+			                    url: AjaxValidations.url,
+			                    type: "POST",
+			                    data: {
+			                            action:action, 
+			                            field : encrypted,
+			                            nonce: wp_jcryption.nonce
+			                          },
+			                    async : true,
+			                    success: function(data){ 
+				                    
+				                    console.log( "Validation Returned: ------------------------" );
+			                        //console.log( resp );
+			                        console.log( data );
+			                        console.log( "----------------------------------------- END" );
+			                    }
+				            });// ajax 
+			              
+			              
+			            },
+			            function() {
+			            	// Authentication with AES Failed ... sending form without protection
+			            	confirm("Authentication with Server failed, are you sure you want to submit this form unencrypted?", function() {
+			                //$(base.$el).submit();
+			            	});
+			        	}
+				  	);//base.authenticate
+				  	}//if beforeEncryption
+			  } );
+	      }
+	      
+      }//use ajax activated
     };
 
     base.init();
@@ -101,7 +163,7 @@
       var key = base.getKey();
       $.jCryption.authenticate(key, base.options.getKeysURL, base.options.handshakeURL, success, failure);
     };
-  };
+  };//$.jCryption
 
   /**
   * Authenticates with the server
@@ -223,6 +285,7 @@
   $.jCryption.defaultOptions = {
     submitElement: false,
     submitEvent: "click",
+    fieldValidationEvent: "blur",
     getKeysURL: "jcryption.php?getPublicKey=true",
     handshakeURL: "jcryption.php?handshake=true",
     beforeEncryption: function() { return true },
