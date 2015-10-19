@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP jCryption Security v0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-27 17:26+0100\n"
+"PO-Revision-Date: 2015-03-27 18:16+0100\n"
+"Last-Translator: freemp\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n"
+"+9)%10>3 ? 2 : 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+# @ wpjc
+#: ../class-jcryption.php:19
+#, php-format
+msgid "Unable to read RSA keys. WP jCryption plugin has been deactivated. %s"
+msgstr "Chave RSA não pode ser lida. O plugin WP jCryption foi desativado. %s"
+
+# @ wpjc
+#: ../class-jcryption.php:20
+msgid "Back to admin area"
+msgstr "Voltar para a área de administração"
+
+# @ wpjc
+#: ../wp-jcryption.php:102
+msgid ""
+"WP jCryption is not working currently because it requires PHP 5.3+ with "
+"OpenSSL extension."
+msgstr ""
+"WP jCryption não está functionando pois necessita PHP 5.3+ com a extensão "
+"OpenSSL."
+
+# @ wpjc
+#: ../wp-jcryption.php:108
+msgid "Public and private keys have not been generated yet."
+msgstr "Chaves pública e privada ainda não foram geradas."
+
+# @ wpjc
+#: ../wp-jcryption.php:114
+msgid "Secured by WP jCryption"
+msgstr "Seguro através WP jCryption"
+
+# @ wpjc
+#: ../wp-jcryption.php:125
+#, php-format
+msgid "RSA keys have been created before: %s"
+msgstr "Chaves RSA ja foram criadas em: %s"
+
+# @ wpjc
+#: ../wp-jcryption.php:167
+msgid "Form selectors"
+msgstr "Seletor de formulários"
+
+# @ wpjc
+#: ../wp-jcryption.php:170
+msgid ""
+"List forms which data are to be encrypted (in jQuery style, separated by "
+"commas), e. g.:"
+msgstr ""
+"Lista de formulários que contém dados a serem encriptados (em estilo jQuery, "
+"separados por vírgulas), por exemplo:"
+
+# @ wpjc
+#: ../wp-jcryption.php:172
+msgid ""
+"Also use in admin area (user profile form data will be encrypted anyway)"
+msgstr ""
+"Também utilizado na área administrativa (dados dos usuários serão "
+"encriptados de qualquer forma)"
+
+# @ wpjc
+#: ../wp-jcryption.php:175
+msgid "Indicate secured form inputs with color"
+msgstr "Marcar formulários seguros com cor"
+
+# @ wpjc
+#: ../wp-jcryption.php:178
+msgid ""
+"Fix button id=&#34;submit&#34; and name=&#34;submit&#34; by replacing this "
+"with &#34;wpjc-submit&#34;"
+msgstr ""
+"Correção do butão id=&#34;submit&#34; e name=&#34;submit&#34 através de &#34;"
+"wpjc-submit&#34;"
+
+# @ wpjc
+#: ../wp-jcryption.php:184
+msgid "Current Key Pair"
+msgstr "Par de chaves atual"
+
+# @ wpjc
+#: ../wp-jcryption.php:188
+#, php-format
+msgid "Generation date: %s. Current RSA public key length: %d."
+msgstr "Data de geração: %s. Atual tamanho da chave RSA pública: %d."
+
+# @ wpjc
+#: ../wp-jcryption.php:191
+msgid "Private key is not shown here but it is stored in the database."
+msgstr ""
+"A chave privada não está sendo exibida, porém está salva no banco de dados."
+
+# @ wpjc
+#: ../wp-jcryption.php:192
+msgid "New key length:"
+msgstr "Novo tamanho de chave:"
+
+# @ wpjc
+#: ../wp-jcryption.php:200
+msgid "Generate new key pair"
+msgstr "Gerar novo par de chaves"
+
+# @ wpjc
+#: ../wp-jcryption.php:246
+msgid "Public or private keys have not been generated correctly."
+msgstr "Chave pública ou privada não foi gerada corretamente."
+
+# @ wpjc
+#: ../wp-jcryption.php:250
+msgid "plugin settings"
+msgstr "configuração do plugin"
+
+# @ wpjc
+#: ../wp-jcryption.php:251
+#, php-format
+msgid "Maybe you want to change some %s."
+msgstr "Talvez você deseje mudar a %s."
+
+# @ wpjc
+#: ../wp-jcryption.php:258
+#, php-format
+msgid "Public and private keys have been generated successfully, %s."
+msgstr "Chaves pública e privada foram geradas com sucesso, %s."
