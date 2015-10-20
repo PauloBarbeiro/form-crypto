@@ -142,7 +142,7 @@
 				                      //resp = $.parseJSON(data);
 			                        
 			                          console.log( "Validation Returned: ------------------------" );
-			                          teste_callback(data)
+			                          AjaxValidations.teste_callback(data)
 			                          //console.log( resp );
 			                          console.log( data );
 			                          console.log( "----------------------------------------- END" );
@@ -4645,6 +4645,9 @@ var JSEncrypt = JSEncryptExports.JSEncrypt;
 
 // Important call
 jQuery.jCryption.crypt = new JSEncrypt(); // $ doesn't work with WP.
+
+
+
 
 /* http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js */
 /*

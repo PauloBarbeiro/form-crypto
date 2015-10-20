@@ -15,5 +15,7 @@ jQuery(document).ready(function($) {
 	}
 });
 
-//Plugin Namescpace
-var FormCrypto = FormCrypto || {};
+/* Plugin Namescpace
+	
+*/
+//var FormCrypto = FormCrypto || {};
